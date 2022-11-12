@@ -1,4 +1,4 @@
-# Geneva
+# Geneva webapp
 
 ## Stack
 
