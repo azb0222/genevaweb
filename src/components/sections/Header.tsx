@@ -19,13 +19,16 @@ interface Props {
   to: string;
 }
 
-const LinkWrapper = ({ children, to = "/", ...rest }: Props) => {
+const LinkWrap = ({ to = "/", children }: Props) => {
   return (
-    <Box mr={8} display="block" {...rest}>
-      <Link as={GatsbyLink} to={to}>
-        {children}
-      </Link>
-    </Box>
+    <Link
+      as={GatsbyLink}
+      to={to}
+      color="#004ca3"
+      _hover={{ textDecor: "none", color: "blue.900" }}
+    >
+      {children}
+    </Link>
   );
 };
 
@@ -48,42 +51,21 @@ const Header = () => {
       {/* </Box> */}
 
       <Flex align="center" wrap="wrap" gap={8}>
-        <Link
-          as={GatsbyLink}
-          to="/about"
-          color="#004ca3"
-          _hover={{ textDecor: "none", color: "blue.900" }}
-        >
-          About
-        </Link>
-        <Link
-          as={GatsbyLink}
-          to="/about"
-          color="#004ca3"
-          _hover={{ textDecor: "none", color: "blue.900" }}
-        >
-          Pricing
-        </Link>
-        <Link
-          as={GatsbyLink}
-          to="/about"
-          color="#004ca3"
-          _hover={{ textDecor: "none", color: "blue.900" }}
-        >
-          Careers
-        </Link>
+        <LinkWrap to="/about">About</LinkWrap>
+        <LinkWrap to="/pricing">Pricing</LinkWrap>
+        <LinkWrap to="/careers">Careers</LinkWrap>
       </Flex>
-      <GatsbyLink to="/contact">
+      <Link href="mailto:meelvidushi1@gmail.com">
         <Button
           size="md"
           rounded="md"
           bg="#004ca3"
           color="white"
-          _hover={{ bg: "blue.900" }}
+          _hover={{ textDecor: "none", bg: "blue.900" }}
         >
           Contact us
         </Button>
-      </GatsbyLink>
+      </Link>
     </Flex>
   );
 };

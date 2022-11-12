@@ -8,8 +8,8 @@ import {
   Heading,
   Stack,
   Text,
+  Link,
 } from "@chakra-ui/react";
-import { Link } from "gatsby";
 import Section from "../layouts/Section";
 
 interface Props {
@@ -46,12 +46,12 @@ export default function Hero({
             {subtitle}
           </Heading>
 
-          <Link to={ctaLink}>
+          <Link href="mailto:meelvidushi1@gmail.com">
             <Button
               size="md"
               rounded="md"
               bg="#004ca3"
-              _hover={{ bg: "blue.900" }}
+              _hover={{ textDecor: "none", bg: "blue.900" }}
               color="white"
             >
               {ctaText}
