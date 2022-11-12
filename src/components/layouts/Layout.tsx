@@ -1,10 +1,15 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import { Flex } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 import Header from "../sections/Header";
 
-const Layout = ({ children }) => {
+// TODO: temp solution to rm ts err
+interface Props {
+  children?: ReactNode;
+}
+
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -16,10 +21,12 @@ const Layout = ({ children }) => {
   `);
 
   return (
-      <Flex direction="column" align="center">
+    <Flex direction="column" align="center">
+      <Box ml="auto" w="100%" mr="auto" maxW="1280px" pl={8} pr={8} pt={8}>
         <Header />
-        {children}
-      </Flex>
+      </Box>
+      {children}
+    </Flex>
   );
 };
 
