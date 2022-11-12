@@ -11,7 +11,7 @@ import {
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
-import Logo from "../../images/headerlogo.svg";
+import Logo from "../images/headerlogo.svg";
 
 // TODO: temporarily removed type safety
 interface Props {
@@ -35,45 +35,52 @@ const Header = () => {
 
   return (
     <Flex align="center" justify="space-between" wrap="wrap" w="100%" gap={4}>
-      <Box>
-        <Heading size="lg" fontWeight="bold" color="blue.600">
+      {/* <Box> */}
+      <StaticImage
+        width={150}
+        layout="constrained"
+        src="../../images/geneva-logo-large.png"
+        alt="geneva-logo.png"
+      />
+      {/* <Heading size="lg" fontWeight="bold" color="#004ca3">
           Geneva
-        </Heading>
-        {/* <Image
-          as={StaticImage}
-          src="../images/geneva-logo-large.png"
-          alt="geneva-logo-large.png"
-        /> */}
-      </Box>
+        </Heading> */}
+      {/* </Box> */}
 
       <Flex align="center" wrap="wrap" gap={8}>
         <Link
           as={GatsbyLink}
           to="/about"
-          color="blue.600"
-          // _hover={{ textDecor: 'none' }}
+          color="#004ca3"
+          _hover={{ textDecor: "none", color: "blue.900" }}
         >
           About
         </Link>
         <Link
           as={GatsbyLink}
           to="/about"
-          color="blue.600"
-          // _hover={{ textDecor: 'none' }}
+          color="#004ca3"
+          _hover={{ textDecor: "none", color: "blue.900" }}
         >
-          Pricing 
+          Pricing
         </Link>
         <Link
           as={GatsbyLink}
           to="/about"
-          color="blue.600"
-          // _hover={{ textDecor: 'none' }}
+          color="#004ca3"
+          _hover={{ textDecor: "none", color: "blue.900" }}
         >
           Careers
         </Link>
       </Flex>
       <GatsbyLink to="/contact">
-        <Button size="md" rounded="md" bg="blue.600" color="white">
+        <Button
+          size="md"
+          rounded="md"
+          bg="#004ca3"
+          color="white"
+          _hover={{ bg: "blue.900" }}
+        >
           Contact us
         </Button>
       </GatsbyLink>
